@@ -12,5 +12,3 @@
   2. flask run
   3. click on the link
 
-#### Problem: 
-  click the link twice, it doesn't work

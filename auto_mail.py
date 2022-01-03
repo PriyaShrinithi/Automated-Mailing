@@ -14,8 +14,10 @@ app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 
 
 def get_recipient_list():
-    df = pd.DataFrame(pd.read_excel("form.xlsx"))
-    recipient_list = df['EMAIL'].values.tolist()
+    sheets = pd.read_excel("form.xlsx", sheet_name=None)
+    recipient_list = []
+    for sheet, data in sheets.items():
+        recipient_list+=data['EMAIL'].values.tolist()
     return recipient_list
 
 @app.route('/')
